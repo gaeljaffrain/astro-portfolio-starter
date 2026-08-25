@@ -30,6 +30,8 @@ However, this repository includes sample copy, sample project descriptions, and 
 
 This template is best understood as a codebase and visual scaffold for building your own portfolio, not as a completed, rights-cleared portfolio for production use.
 
+![Portfolio homepage screenshot](public/readme-screenshots/homepage_consultant.jpg)
+
 ## Run locally
 
 ```
@@ -55,6 +57,8 @@ The consulting and independent-engineer content lives in
 `src/pages/index.astro`. The hero copy, expertise cards, experience list,
 project section, article section, and contact links are plain markup and
 collection rendering in that file.
+
+![Portfolio homepage indie dev mode](public/readme-screenshots/homepage_indiedev.jpg)
 
 ## Edit homepage content
 
@@ -85,6 +89,8 @@ See `pico8-game-04.md` and `dmx-cue-controller.md` for examples of each.
 
 The markdown body of each file becomes the project's write-up. Each one lives on 
 its project's own page at `/projects/<filename-without-extension>/`.
+
+![Project example](public/readme-screenshots/project.jpg)
 
 ## Add a technical article
 
