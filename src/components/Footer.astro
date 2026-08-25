@@ -1,0 +1,20 @@
+---
+import { consultingEnabled } from "../config/site";
+
+const email = "john@example.tyroll";
+const socialLinks = [
+  { label: "GitHub", href: "https://github.com/johndoe-example" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/johndoe-example" },
+  { label: "Bluesky", href: "https://bsky.app/profile/johndoe-example.bsky.social" },
+];
+---
+
+<footer class="site-footer" id="contact">
+  <p>{consultingEnabled ? "John Doe, synthetic systems consultant" : "John Doe, independent engineer"}</p>
+  <div class="footer-links">
+    {socialLinks.map(({ label, href }) => (
+      <a href={href} target="_blank" rel="noopener noreferrer">{label}</a>
+    ))}
+    <a class="email" href={`mailto:${email}`}>{email}</a>
+  </div>
+</footer>

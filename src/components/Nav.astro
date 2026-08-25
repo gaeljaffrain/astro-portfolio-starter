@@ -1,0 +1,23 @@
+---
+import { consultingEnabled } from "../config/site";
+
+const links = [
+  { href: "/#about", label: "about" },
+  { href: "/#experience", label: "experience" },
+];
+if (consultingEnabled) links.push({ href: "/#consulting", label: "consulting" });
+const labLinks = [
+  { href: "/#projects", label: "projects" },
+  { href: "/#articles", label: "articles" },
+  { href: "/#contact", label: "contact" },
+];
+---
+
+<nav class="site-nav">
+  <a href="/" class="brand">John Doe</a>
+  <div class="links">
+    {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    <span class="divider">|</span>
+    {labLinks.map((l) => <a href={l.href}>{l.label}</a>)}
+  </div>
+</nav>

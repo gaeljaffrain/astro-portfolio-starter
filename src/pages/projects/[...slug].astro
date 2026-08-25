@@ -1,0 +1,118 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { title, type, summary, tags, liveUrl, repoUrl, bom, gallery } =
+  project.data;
+const { Content } = await render(project);
+---
+
+<Layout title={`${title} — John Doe`} description={summary}>
+  <Nav />
+
+  <main>
+    <p class="eyebrow" style={`color: ${type === "hardware" ? "var(--accent-hardware)" : "var(--accent-software)"}`}>
+      {type === "hardware" ? "hardware project" : "software project"}
+    </p>
+    <h1 style="font-size: 24px; margin-bottom: 10px;">{title}</h1>
+    <p style="color: var(--text-muted); font-size: 14px; max-width: 520px; margin: 0 0 16px;">
+      {summary}
+    </p>
+
+    {
+      tags.length > 0 && (
+        <div class="tag-row" style="margin-bottom: 24px;">
+          {tags.map((t) => (
+            <span class="tag">{t}</span>
+          ))}
+        </div>
+      )
+    }
+
+    {
+      (liveUrl || repoUrl) && (
+        <div style="display: flex; gap: 10px; margin-bottom: 28px;">
+          {liveUrl && (
+            <a class="btn-accent" href={liveUrl} target="_blank" rel="noopener">
+              View live
+            </a>
+          )}
+          {repoUrl && (
+            <a class="btn-ghost" href={repoUrl} target="_blank" rel="noopener">
+              Source
+            </a>
+          )}
+        </div>
+      )
+    }
+
+    {
+      type === "hardware" && gallery && gallery.length > 0 && (
+        <div
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-bottom: 24px;"
+        >
+          {gallery.map((src) => (
+            <img
+              src={src}
+              alt=""
+              style="border-radius: 8px; border: 1px solid var(--border);"
+            />
+          ))}
+        </div>
+      )
+    }
+
+    <article style="max-width: 620px; line-height: 1.7; font-size: 15px;">
+      <Content />
+    </article>
+
+    {
+      type === "hardware" && bom && bom.length > 0 && (
+        <>
+          <p class="section-heading" style="margin-top: 8px;">
+            bill of materials
+          </p>
+          <table class="bom">
+            <thead>
+              <tr>
+                <th>Part</th>
+                <th>Qty</th>
+                <th>Source</th>
+              </tr>
+            </thead>
+            <tbody>
+              {bom.map((item) => (
+                <tr>
+                  <td>{item.part}</td>
+                  <td>{item.qty}</td>
+                  <td>{item.source ?? "—"}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </>
+      )
+    }
+
+    <p style="margin-top: 32px;">
+      <a class="btn-ghost" href="/#projects">Back to projects</a>
+    </p>
+  </main>
+
+  <Footer />
+</Layout>

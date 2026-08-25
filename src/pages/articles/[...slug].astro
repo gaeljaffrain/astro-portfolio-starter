@@ -1,0 +1,42 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+export async function getStaticPaths() {
+  const articles = await getCollection("articles");
+  return articles.map((article) => ({
+    params: { slug: article.id },
+    props: { article },
+  }));
+}
+
+interface Props {
+  article: CollectionEntry<"articles">;
+}
+
+const { article } = Astro.props;
+const { title, summary, tags, date } = article.data;
+const { Content } = await render(article);
+---
+
+<Layout title={`${title} — John Doe`} description={summary}>
+  <Nav />
+
+  <main>
+    <p class="eyebrow pro">technical article</p>
+    <h1 class="article-title">{title}</h1>
+    <p class="article-summary">{summary}</p>
+    <div class="article-meta">
+      {date && <time datetime={date.toISOString()}>{date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</time>}
+      {tags.length > 0 && <span>{tags.join(" / ")}</span>}
+    </div>
+
+    <article class="article-content">
+      <Content />
+    </article>
+  </main>
+
+  <Footer />
+</Layout>

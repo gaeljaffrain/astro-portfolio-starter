@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { title, type, summary, tags, thumbnail } = project.data;
+const href = `/projects/${project.id}/`;
+const thumbLabel = type === "hardware" ? "photo + render" : "playable demo";
+---
+
+<a class={`project-card ${type === "hardware" ? "hardware" : ""}`} href={href}>
+  <div class="thumb">
+    {thumbnail ? <img src={thumbnail} alt={`${title} thumbnail`} /> : `[ ${thumbLabel} ]`}
+  </div>
+  <h3>{title}</h3>
+  <p class="meta">{summary}</p>
+  {
+    tags.length > 0 && (
+      <div class="tag-row">
+        {tags.map((t) => (
+          <span class="tag">{t}</span>
+        ))}
+      </div>
+    )
+  }
+</a>
