@@ -18,6 +18,8 @@ This template was generated to learn how to code an Astro site, with the goal to
 
 I am a human, but I did leverage heavily Copilot (in VSCode) to fine tune the features I wanted in my own portfolio. I am on the free plan, so I am not exactly sure which models were used. As far as I can tell, when the portfolio was written the free plan was using GPT-4o and Claude 3.5 Sonnet.
 
+[![View the live demo](https://img.shields.io/badge/View_the_live_demo-demo.gaeljaffrain.com-0f766e?style=for-the-badge)](https://demo.gaeljaffrain.com)
+
 ## License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
