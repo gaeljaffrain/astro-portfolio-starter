@@ -2,6 +2,8 @@
 
 **Author: Gaël Jaffrain - hello@gaeljaffrain.com**
 
+[![View the live demo](https://img.shields.io/badge/View_the_live_demo-demo.gaeljaffrain.com-0f766e?style=for-the-badge)](https://demo.gaeljaffrain.com)
+
 This template allows to create an Astro portfolio site with two homepage modes: 
 an indie dev mode and an optional consulting mode, adding obvious "call to action". 
 Both modes include an experience section, selected projects, technical articles, and contact
@@ -18,21 +20,21 @@ This template was generated to learn how to code an Astro site, with the goal to
 
 I am a human, but I did leverage heavily Copilot (in VSCode) to fine tune the features I wanted in my own portfolio. I am on the free plan, so I am not exactly sure which models were used. As far as I can tell, when the portfolio was written the free plan was using GPT-4o and Claude 3.5 Sonnet.
 
-[![View the live demo](https://img.shields.io/badge/View_the_live_demo-demo.gaeljaffrain.com-0f766e?style=for-the-badge)](https://demo.gaeljaffrain.com)
+![Portfolio homepage screenshot](./screenshots/homepage.jpg)
 
 ## License
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+The source code is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
-## Template disclaimer
+## Placeholder assets
 
-This repository is intended as a reusable starter template. It is open for remixing, modification, and adaptation under the MIT license.
+The template includes a fictional AI-generated engineer portrait and
+robot icon as visual placeholders.
 
-However, this repository includes sample copy, sample project descriptions, and generated visual assets that were created for demo purposes and may have been produced with AI tools. Those materials should not be treated as guaranteed rights-cleared or publication-ready content. Before publishing a derivative site, you should review the included text and images, replace any content you do not own or are not comfortable licensing, and ensure the final deployed project uses original or properly licensed assets.
+You are encouraged to replace these assets with your own artwork,
+photography, branding, or other assets appropriate for your project.
 
-This template is best understood as a codebase and visual scaffold for building your own portfolio, not as a completed, rights-cleared portfolio for production use.
-
-![Portfolio homepage screenshot](public/readme-screenshots/homepage_consultant.jpg)
+See [ASSETS.md](./ASSETS.md) for provenance details.
 
 ## Run locally
 
@@ -59,8 +61,6 @@ The consulting and independent-engineer content lives in
 `src/pages/index.astro`. The hero copy, expertise cards, experience list,
 project section, article section, and contact links are plain markup and
 collection rendering in that file.
-
-![Portfolio homepage indie dev mode](public/readme-screenshots/homepage_indiedev.jpg)
 
 ## Edit homepage content
 
@@ -91,8 +91,6 @@ See `pico8-game-04.md` and `dmx-cue-controller.md` for examples of each.
 
 The markdown body of each file becomes the project's write-up. Each one lives on 
 its project's own page at `/projects/<filename-without-extension>/`.
-
-![Project example](public/readme-screenshots/project.jpg)
 
 ## Add a technical article
 

@@ -18,7 +18,7 @@ const allArticles = (await getCollection("articles")).sort(
 <Layout
   title={consultingEnabled
     ? "John Doe - synthetic systems consultant"
-    : "John Doe - engineer"},
+    : "John Doe - indie dev"},
   description={consultingEnabled
     ? "Synthetic perception engineer and systems consultant for advanced android platforms."
     : "Engineer building software, hardware, and experimental systems for human-facing machines."}
@@ -36,10 +36,12 @@ const allArticles = (await getCollection("articles")).sort(
           {
             consultingEnabled ? (
               <>
-                <h1>Synthetic systems engineer — 12+ years at Tyroll Corporation</h1>
+                <h1>Synthetic systems engineer — 10+ years at Tyroll Corp.</h1>
                 <p class="lede">
-                  I build the eyes, behavior, and social polish for androids that
-                  need to look real, act natural, and avoid weirdly intense pauses.
+                  I build the visual systems for gen.2 android deployed in the mining colonies X145 and X156.
+                </p>
+                <p class="lede">
+                  Fun fact, I love unicorns for some reason.
                 </p>
                 <a class="btn-accent" href="#contact">Get in touch</a>
                 <a class="btn-ghost" href="#consulting" style="margin-left: 8px;">
@@ -61,7 +63,7 @@ const allArticles = (await getCollection("articles")).sort(
         <img
           class="hero-portrait"
           src="/images/hero.jpeg"
-          alt="John Doe, a fictional engineer"
+          alt="John Doe, a fictional robotics engineer"
           width="1024"
           height="1024"
         />
@@ -72,14 +74,13 @@ const allArticles = (await getCollection("articles")).sort(
           <h3>Synthetic vision systems</h3>
           <p>
             Sensor fusion, image tuning, and perception validation for androids
-            that need to look alive without looking deeply unsettling.
+            deployed off-earth.
           </p>
         </div>
         <div class="expertise-card">
           <h3>Human-machine interfaces</h3>
           <p>
-            Behavioral modeling and interface design for machines that should feel
-            natural, readable, and just a little less terrifying.
+            Behavioral modeling and interface design for machines deployed in mixed working environment (w/ legacy human workers).
           </p>
         </div>
       </div>}
@@ -88,8 +89,7 @@ const allArticles = (await getCollection("articles")).sort(
         <h3>Work with me</h3>
         <p>
           Systems audits, perception reviews, and prototype guidance for teams
-          building androids, autonomous systems, or anything that needs to look
-          less uncanny and more useful.
+          building androids, autonomous systems. Safety compliance expert.
         </p>
         <a class="btn-ghost" href="#contact">Discuss a project</a>
       </div>}
@@ -102,9 +102,7 @@ const allArticles = (await getCollection("articles")).sort(
         <div>
           <h3>Senior systems engineer, Tyroll Corporation</h3>
           <p>
-            Led synthetic perception and human-interface engineering for android
-            platforms. The work: make the machine look natural, talk like a person,
-            and never trigger the “that is deeply wrong” reaction in a meeting.
+            Led the development and tuning of the Tyroll gen.2 android visual system. Off-earth debugging.
           </p>
         </div>
       </div>

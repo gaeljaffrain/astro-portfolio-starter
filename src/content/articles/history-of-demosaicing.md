@@ -1,32 +1,30 @@
 ---
-title: "The uncanny valley of demosaicing"
-summary: "A brief history of how cameras reconstruct color from sparse sensor data — and why the wrong guess looks deeply wrong."
+title: "The history of demosaicing"
+summary: "A brief history of how cameras reconstruct color from sparse sensor data."
 tags: ["image quality", "synthetic vision", "computational photography"]
 order: 1
 date: 2026-08-23
 ---
 
-Most cameras do not measure a complete red, green, and blue value at every pixel. A color filter array slices the sensor into a mosaic, so each site records only one channel. The rest is a guess.
+For a sensor to see in color, we apply a color filter array on top of it. Each pixel see only a band of the full light spectrum. So we need to use interpolation to restore the full color information.
 
-That guess is demosaicing, and it is one of the first places where a camera's personality shows up. A good pipeline preserves detail and color without inventing drama. A bad one makes edges look wrong, textures shimmer, and skin tones do strange things.
+lorem ipsum dolor sit amet consectetur adipiscing elit cupiditate autem excepteur est minus non dolor et officia repellendus optio voluptas in rerum ex ea praesentium aute id amet fugiat assumenda quibusdam qui eum cumque incididunt labore dolor dolore cupiditate irure pariatur corrupti cum excepturi sunt molestias reprehenderit ullamco optio in
 
 ## The basic problem
 
-The Bayer pattern is the most common arrangement. It samples green more often because the human eye is much more sensitive to green detail than to red or blue noise.
+lorem ipsum dolor sit amet consectetur adipiscing elit deleniti atque occaecat vel dolores fugiat eiusmod fugiat est aliquip cupiditate non qui qui culpa omnis elit magna omnis esse fuga et reprehenderit autem dolorem cupidatat nisi qui dolores odio amet magna eu culpa quidem sit est
 
 ![Bayer color filter array pattern](/articles/demosaic/bayer-pattern.png)
 
-At a red pixel, the algorithm has to infer green and blue from nearby samples. The simplest version copies or averages neighbors. It is fast, cheap, and occasionally looks like the camera is trying to be polite while making a terrible decision.
+Lorem ipsum dolor sit amet consectetur adipiscing elit ad dolores. Exercitation dolor distinctio praesentium id ea possimus voluptate at culpa quis veniam esse. Adipiscing anim est dolor nam tempore blanditiis eiusmod excepteur similique tempore. Dolor dolor amet nulla quo deserunt et non cupiditate sed nulla. Placeat consequat in ipsum ea nihil.
 
 ## Adding awareness of edges
 
-Better methods estimate local gradients before choosing an interpolation direction. If the horizontal neighborhood is smoother than the vertical one, the algorithm should prefer the horizontal path. This reduces zippering and false color, but it still fails when the local evidence is ambiguous.
+Lorem ipsum dolor sit amet consectetur adipiscing elit ad dolores. Exercitation dolor distinctio praesentium id ea possimus voluptate at culpa quis veniam esse. Adipiscing anim est dolor nam tempore blanditiis eiusmod excepteur similique tempore. Dolor dolor amet nulla quo deserunt et non cupiditate sed nulla. Placeat consequat in ipsum ea nihil.
 
 ## The modern trade-off
 
-Modern pipelines combine richer sampling, better noise models, and learned priors. Some systems denoise and demosaic together. Others use neural networks trained on large image sets to make the final reconstruction more convincing.
-
-The real challenge is simple: preserve real detail without inventing structure. That is the difference between a camera that sees clearly and one that starts making things up.
+Lorem ipsum dolor sit amet consectetur adipiscing elit ad dolores. Exercitation dolor distinctio praesentium id ea possimus voluptate at culpa quis veniam esse. Adipiscing anim est dolor nam tempore blanditiis eiusmod excepteur similique tempore. Dolor dolor amet nulla quo deserunt et non cupiditate sed nulla. Placeat consequat in ipsum ea nihil.
 
 ## Further reading
 

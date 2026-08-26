@@ -4,16 +4,18 @@ type: software
 summary: "A tiny PICO-8 platformer about a maintenance drone that keeps developing feelings."
 tags: ["Lua", "PICO-8", "game design"]
 order: 1
-repoUrl: "https://github.com/johndoe/ghost-in-the-machine"
-liveUrl: "https://github.com/johndoe/ghost-in-the-machine"
+repoUrl: "https://github.com/johndoe-example/ghost-in-the-machine"
+liveUrl: "https://livedemo.johndoe.example"
 date: 2026-06-01
-thumbnail: "/projects/pico8/thumb.png"
+thumbnail: "/favicon.svg"
 ---
 
-A compact platformer about a maintenance drone with a stubbornly human sense of curiosity and an alarming amount of emotional ambition. Small, sharp, and just a little too sincere for a machine.
+A compact platformer about a maintenance drone with a human sense of curiosity.
+
+Pico-8 is a fantastic retro fantasy console, try it and buy it at [Lexaloffle.com](https://www.lexaloffle.com/pico-8.php)
 
 ## Design notes
 
-The goal was simple: one-screen levels, tight movement, and just enough ambiguity to make the robot feel like it is learning the rules of the world as it goes. It is a mechanical little exercise in timing, but the theme is a soft joke about synthetic empathy.
+lorem ipsum dolor sit amet consectetur adipiscing elit voluptatum libero commodo quas non qui id adipiscing veniam non labore qui do et et nisi ut laborum enim laboris et aut animi in nisi quidem dolorem et illum proident qui in harum eu id fugiat sunt officia aliqua eu aliqua reprehenderit.
 
-Built in VS Code with Lua and exported as a playable PICO-8 cart. It is small, polished, and exactly the kind of thing a person makes when they are trying to prove the world is not as empty as the lab reports suggest.
+lorem ipsum dolor sit amet consectetur adipiscing elit voluptatum libero commodo quas non qui id adipiscing veniam non labore qui do et et nisi ut laborum enim laboris et aut animi in nisi quidem dolorem et illum proident qui in harum eu id fugiat sunt officia aliqua eu aliqua reprehenderit.

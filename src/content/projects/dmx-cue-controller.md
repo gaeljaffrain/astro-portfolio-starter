@@ -1,38 +1,37 @@
 ---
-title: "Tyroll Cue Rig"
+title: "Stage Lighting Fader Wing"
 type: hardware
-summary: "A tactile DMX control surface for stage cues, android choreography, and all the weird little moments in between."
+summary: "A hardware fader wing."
 tags: ["DMX", "PCB", "firmware"]
 order: 2
-repoUrl: "https://github.com/johndoe/replicant-cue-rig"
+repoUrl: "https://github.com/johndoe-example/fader-wing"
 gallery:
-  - "/projects/dmx/render.jpg"
-  - "/projects/dmx/pcb.jpg"
-  - "/projects/dmx/assembled.jpg"
+  - "/projects/dmx/pcb.png"
+  - "/projects/dmx/enclosure.png"
 bom:
   - part: "Enttec USB DMX Pro"
     qty: "1"
     source: "Enttec"
-  - part: "10k linear fader"
-    qty: "4"
+  - part: "Motorized linear fader"
+    qty: "8"
     source: "Adafruit"
   - part: "Custom PCB"
     qty: "1"
     source: "JLCPCB"
   - part: "3D printed enclosure"
     qty: "1"
-    source: "self, PETG"
+    source: "self, PLA"
 date: 2026-05-15
 ---
 
-A physical control surface for triggering performance cues with the kind of direct haptic feedback that makes a room feel less like a laptop and more like a stage.
+A physical control surface for Qlab and Lightkey
 
 ## Why
 
-The problem was simple: software-only cue control felt too abstract for live performance. When something needs to happen in real time, a real fader is a nicer interface than a mouse and a prayer.
+lorem ipsum dolor sit amet consectetur adipiscing elit voluptatum libero commodo quas non qui id adipiscing veniam non labore qui do et et nisi ut laborum enim laboris et aut animi in nisi quidem dolorem et illum proident qui in harum eu id fugiat sunt officia aliqua eu aliqua reprehenderit.
 
 ## Build
 
-The enclosure was modeled, printed, and fitted around a small custom PCB routing four faders into a DMX-In control pipeline. Firmware handles debounce, channel scaling, and cue recall with enough grace to keep a show running without a panic spiral.
+lorem ipsum dolor sit amet consectetur adipiscing elit voluptatum libero commodo quas non qui id adipiscing veniam non labore qui do et et nisi ut laborum enim laboris et aut animi in nisi quidem dolorem et illum proident qui in harum eu id fugiat sunt officia aliqua eu aliqua reprehenderit.
 
-This was the sort of project where a few knobs and a bit of steel make a system feel intentional instead of vaguely haunted.
+lorem ipsum dolor sit amet consectetur adipiscing elit voluptatum libero commodo quas non qui id adipiscing veniam non labore qui do et et nisi ut laborum.
