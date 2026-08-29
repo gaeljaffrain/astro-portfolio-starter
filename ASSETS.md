@@ -1,43 +1,23 @@
 # Assets
 
-This file documents the provenance and licensing of graphical assets
-included in this repository.
+Placeholder/demonstration assets. Graphical asset provenance and licensing below.
 
-## Original artwork
+## Original Assets
 
-### enclosure.jpg, pcb.png, bayer-pattern.png
+Copyright (c) 2026 Gael Jaffrain | License: MIT
 
-- **Paths:** 
-    - `public/projects/dmx/enclosure.png`
-    - `public/projects/dmx/pcb.png`
-    - `public/articles/demosaic/bayer-pattern.png`
-- **Type:** Original diagram
-- **Created with:** Apple Keynote
-- **Creator:** Gaël Jaffrain
-- **License:** MIT License
+- `hero.jpeg` — Original photo, shot on iPhone, edited in Adobe Photoshop for a sci-fi vibe
+- `enclosure.png` — Original diagram, Apple Keynote
+- `pcb.png` — Original diagram, Apple Keynote
+- `bayer-pattern.png` — Original diagram, Apple Keynote
 
-## AI-generated artwork
+## Third Party Assets
 
-### hero.jpeg
+### Tabler Icons
 
-- **Path:** `public/images/hero.jpeg`
-- **Type:** AI-generated portrait
-- **Created with:** OpenAI image generation
-- **Creator:** Gaël Jaffrain
-- **License:** MIT License
-- **Reference images:** None
-- **Purpose:** Placeholder / demonstration asset
-- **Notes:** This is a fictional character and is intended to be replaced
-  by the template user.
+Modifications of icons from [Tabler Icons](https://tabler.io/icons) (© Paweł Kuna, MIT, [GitHub](https://github.com/tabler/tabler-icons)):
 
-### favicon.svg
+- `bot-id.svg` — modification: custom color
+- `thinking-high.svg` — modification: custom color and background
 
-- **Path:** `public/favicon.svg`
-- **Type:** AI-generated icon
-- **Created with:** GitHub Copilot image generation
-- **Creator:** Gaël Jaffrain
-- **License:** MIT License
-- **Reference images:** None
-- **Purpose:** Placeholder / demonstration asset
-- **Notes:** Intended to be replaced
-  by the template user.
+Modifications distributed under the project's MIT license.

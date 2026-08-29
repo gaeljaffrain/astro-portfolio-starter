@@ -18,7 +18,7 @@ was removed in Astro v6. Requires **Node 22+**.
 
 This template was generated to learn how to code an Astro site, with the goal to upgrade my old Wordpress portfolio. 
 
-I am a human, but I did leverage heavily Copilot (in VSCode) to fine tune the features I wanted in my own portfolio. I am on the free plan, so I am not exactly sure which models were used. As far as I can tell, when the portfolio was written the free plan was using GPT-4o and Claude 3.5 Sonnet.
+I am a human, but I did leverage heavily Copilot (in VSCode) to fine tune the features I wanted in my own portfolio. Models used include GPT-4o and Claude 3.5 Sonnet.
 
 ![Portfolio homepage screenshot](./screenshots/homepage.jpg)
 
@@ -28,8 +28,7 @@ The source code is licensed under the MIT License. See [LICENSE](LICENSE) for de
 
 ## Placeholder assets
 
-The template includes a fictional AI-generated engineer portrait and
-robot icon as visual placeholders.
+The template includes some visual placeholders.
 
 You are encouraged to replace these assets with your own artwork,
 photography, branding, or other assets appropriate for your project.
