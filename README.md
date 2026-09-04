@@ -21,8 +21,7 @@ The visual content and sample portfolio copy intentionally use a fictional perso
 
 This template was generated to learn how to code an Astro site, with the goal to upgrade my old Wordpress portfolio. 
 
-![Portfolio hero section screenshot](./screenshots/homepage.jpg)
-![Portfolio projects section screenshot](./screenshots/projects.jpg)
+![Portfolio hero section screenshot](./screenshots/homepage_wide.jpg)
 
 ## License
 
