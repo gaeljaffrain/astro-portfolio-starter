@@ -1,5 +1,7 @@
 ---
 import { getCollection, render, type CollectionEntry } from "astro:content";
+import { siteCopy } from "../../config/site";
+
 import Layout from "../../layouts/Layout.astro";
 import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
@@ -19,9 +21,9 @@ interface Props {
 const { article } = Astro.props;
 const { title, type, summary, tags, date } = article.data;
 const { Content } = await render(article);
+const fullTitle = title + " - " + siteCopy.name;
 ---
-
-<Layout title={`${title} — John Doe`} description={summary}>
+<Layout title={fullTitle} description={summary}>
   <Nav />
 
   <main class="content-page">

@@ -1,5 +1,7 @@
 ---
 import { getCollection } from "astro:content";
+import { siteCopy } from "../config/site";
+
 import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav.astro";
 import Divider from "../components/Divider.astro";
@@ -9,17 +11,16 @@ import Footer from "../components/Footer.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import ArticleCard from "../components/ArticleCard.astro";
 
-import { siteCopy } from "../config/site";
-
 const allProjects = (await getCollection("projects", ({ data }) => !data.draft)).sort(
   (a, b) => a.data.order - b.data.order,
 );
 const allArticles = (await getCollection("articles", ({ data }) => !data.draft)).sort(
   (a, b) => a.data.order - b.data.order,
 );
+const fullTitle = siteCopy.name + " - " + siteCopy.title;
 ---
 
-<Layout title={siteCopy.title} description={siteCopy.description}>
+<Layout title={fullTitle} description={siteCopy.description}>
   <Nav />
 
   <main>
