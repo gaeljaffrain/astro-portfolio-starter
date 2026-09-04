@@ -8,6 +8,7 @@ repoUrl: "https://github.com/johndoe-example/ghost-in-the-machine"
 liveUrl: "https://livedemo.johndoe.example"
 date: 2026-06-01
 thumbnail: "/assets/bot-id.svg"
+draft: false
 ---
 
 A compact platformer about a maintenance drone with a human sense of curiosity.

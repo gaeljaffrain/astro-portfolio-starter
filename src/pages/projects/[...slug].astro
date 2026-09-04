@@ -5,7 +5,7 @@ import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
 
 export async function getStaticPaths() {
-  const projects = await getCollection("projects");
+  const projects = await getCollection("projects", ({ data }) => !data.draft);
   return projects.map((project) => ({
     params: { slug: project.id },
     props: { project },
@@ -17,26 +17,27 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const { title, type, summary, tags, liveUrl, repoUrl, bom, gallery } =
+const { title, type, summary, tags, liveUrl, repoUrl, gallery } =
   project.data;
 const { Content } = await render(project);
+
+const pageTypeClass =
+  type === "hardware" ? "content-page--hardware" : "content-page--software";
 ---
 
 <Layout title={`${title} — John Doe`} description={summary}>
   <Nav />
 
-  <main>
-    <p class="eyebrow" style={`color: ${type === "hardware" ? "var(--accent-hardware)" : "var(--accent-software)"}`}>
+  <main class={`content-page ${pageTypeClass}`}>
+    <p class="eyebrow content-page__eyebrow">
       {type === "hardware" ? "hardware project" : "software project"}
     </p>
-    <h1 style="font-size: 24px; margin-bottom: 10px;">{title}</h1>
-    <p style="color: var(--text-muted); font-size: 14px; max-width: 520px; margin: 0 0 16px;">
-      {summary}
-    </p>
+    <h1 class="content-page__title">{title}</h1>
+    <p class="content-page__summary">{summary}</p>
 
     {
       tags.length > 0 && (
-        <div class="tag-row" style="margin-bottom: 24px;">
+        <div class="tag-row">
           {tags.map((t) => (
             <span class="tag">{t}</span>
           ))}
@@ -46,7 +47,7 @@ const { Content } = await render(project);
 
     {
       (liveUrl || repoUrl) && (
-        <div style="display: flex; gap: 10px; margin-bottom: 28px;">
+        <div class="content-page__top-links">
           {liveUrl && (
             <a class="btn-accent" href={liveUrl} target="_blank" rel="noopener">
               View live
@@ -62,57 +63,98 @@ const { Content } = await render(project);
     }
 
     {
-      type === "hardware" && gallery && gallery.length > 0 && (
+      gallery && gallery.length > 0 && (
         <div
           style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-bottom: 24px;"
         >
           {gallery.map((src) => (
-            <img
-              src={src}
-              alt=""
-              style="border-radius: 8px; border: 1px solid var(--border);"
-            />
+            <button class="gallery-item" type="button" data-image={src}>
+              <img
+                src={src}
+                alt={`${title} gallery image`}
+                class="gallery-image"
+              />
+            </button>
           ))}
         </div>
       )
     }
 
-    <article style="max-width: 620px; line-height: 1.7; font-size: 15px;">
+    <dialog class="image-lightbox" id="image-lightbox">
+      <button class="lightbox-close" type="button" aria-label="Close image">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous image">
+        <span aria-hidden="true">&#10094;</span>
+      </button>
+      <button class="lightbox-nav lightbox-next" type="button" aria-label="Next image">
+        <span aria-hidden="true">&#10095;</span>
+      </button>
+      <img class="lightbox-image" alt="" />
+    </dialog>
+
+    <article class="content-page__body">
       <Content />
     </article>
 
-    {
-      type === "hardware" && bom && bom.length > 0 && (
-        <>
-          <p class="section-heading" style="margin-top: 8px;">
-            bill of materials
-          </p>
-          <table class="bom">
-            <thead>
-              <tr>
-                <th>Part</th>
-                <th>Qty</th>
-                <th>Source</th>
-              </tr>
-            </thead>
-            <tbody>
-              {bom.map((item) => (
-                <tr>
-                  <td>{item.part}</td>
-                  <td>{item.qty}</td>
-                  <td>{item.source ?? "—"}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </>
-      )
-    }
-
-    <p style="margin-top: 32px;">
+    <p class="content-page__back-link">
       <a class="btn-ghost" href="/#projects">Back to projects</a>
     </p>
   </main>
 
   <Footer />
 </Layout>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>("#image-lightbox");
+  const lightboxImage = dialog?.querySelector<HTMLImageElement>(".lightbox-image");
+  const closeButton = dialog?.querySelector<HTMLButtonElement>(".lightbox-close");
+  const prevButton = dialog?.querySelector<HTMLButtonElement>(".lightbox-prev");
+  const nextButton = dialog?.querySelector<HTMLButtonElement>(".lightbox-next");
+  const galleryItems = [...document.querySelectorAll<HTMLButtonElement>(".gallery-item")];
+
+  let currentImageIndex = 0;
+
+  const updateLightboxImage = (index: number) => {
+    if (!dialog || !lightboxImage || galleryItems.length === 0) return;
+
+    currentImageIndex = (index + galleryItems.length) % galleryItems.length;
+    const selectedItem = galleryItems[currentImageIndex];
+    const imageSrc = selectedItem?.dataset.image ?? "";
+
+    lightboxImage.src = imageSrc;
+    lightboxImage.alt = selectedItem?.querySelector("img")?.alt ?? "";
+  };
+
+  galleryItems.forEach((item, index) => {
+    item.addEventListener("click", () => {
+      if (!dialog || !lightboxImage) return;
+
+      currentImageIndex = index;
+      updateLightboxImage(index);
+      dialog.showModal();
+    });
+  });
+
+  prevButton?.addEventListener("click", () => updateLightboxImage(currentImageIndex - 1));
+  nextButton?.addEventListener("click", () => updateLightboxImage(currentImageIndex + 1));
+  closeButton?.addEventListener("click", () => dialog?.close());
+
+  document.addEventListener("keydown", (event) => {
+    if (!dialog || !dialog.open || galleryItems.length === 0) return;
+
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      updateLightboxImage(currentImageIndex - 1);
+    }
+
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      updateLightboxImage(currentImageIndex + 1);
+    }
+  });
+
+  dialog?.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+</script>

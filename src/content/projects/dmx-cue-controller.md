@@ -8,20 +8,8 @@ repoUrl: "https://github.com/johndoe-example/fader-wing"
 gallery:
   - "/projects/dmx/pcb.png"
   - "/projects/dmx/enclosure.png"
-bom:
-  - part: "Enttec USB DMX Pro"
-    qty: "1"
-    source: "Enttec"
-  - part: "Motorized linear fader"
-    qty: "8"
-    source: "Adafruit"
-  - part: "Custom PCB"
-    qty: "1"
-    source: "JLCPCB"
-  - part: "3D printed enclosure"
-    qty: "1"
-    source: "self, PLA"
 date: 2026-05-15
+draft: false
 ---
 
 A physical control surface for Qlab and Lightkey

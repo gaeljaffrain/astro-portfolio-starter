@@ -1,9 +1,11 @@
 ---
 title: "The history of demosaicing"
+type: "technical article"
 summary: "A brief history of how cameras reconstruct color from sparse sensor data."
 tags: ["image quality", "synthetic vision", "computational photography"]
 order: 1
 date: 2026-08-23
+draft: false
 ---
 
 For a sensor to see in color, we apply a color filter array on top of it. Each pixel see only a band of the full light spectrum. So we need to use interpolation to restore the full color information.

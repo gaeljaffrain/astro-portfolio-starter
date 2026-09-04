@@ -16,7 +16,7 @@ const thumbLabel = type === "hardware" ? "photo + render" : "playable demo";
     {thumbnail ? <img src={thumbnail} alt={`${title} thumbnail`} /> : `[ ${thumbLabel} ]`}
   </div>
   <h3>{title}</h3>
-  <p class="meta">{summary}</p>
+  <p>{summary}</p>
   {
     tags.length > 0 && (
       <div class="tag-row">

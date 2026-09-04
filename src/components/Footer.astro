@@ -1,5 +1,5 @@
 ---
-import { consultingEnabled } from "../config/site";
+import { siteCopy } from "../config/site";
 
 const email = "hello@johndoe.example";
 const socialLinks = [
@@ -10,7 +10,7 @@ const socialLinks = [
 ---
 
 <footer class="site-footer" id="contact">
-  <p>{consultingEnabled ? "John Doe, synthetic systems consultant" : "John Doe, independent engineer"}</p>
+  <p>{siteCopy.title}</p>
   <div class="footer-links">
     {socialLinks.map(({ label, href }) => (
       <a href={href} target="_blank" rel="noopener noreferrer">{label}</a>

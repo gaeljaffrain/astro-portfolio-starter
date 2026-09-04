@@ -1,0 +1,95 @@
+/* --- gallery in project pages --- */
+
+.gallery-item {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.gallery-item:focus-visible {
+  outline: 2px solid var(--accent-pro);
+  outline-offset: 3px;
+}
+
+.gallery-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 0px solid var(--border);
+}
+
+/* --- 1-up view with prev/next and close buttons --- */
+
+.image-lightbox {
+  position: relative;
+  max-width: min(90vw, 1000px);
+  max-height: 90vh;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-sunken);
+  color: var(--text);
+}
+
+.image-lightbox::backdrop {
+  background: rgba(0, 0, 0, 0.78);
+}
+
+.lightbox-image {
+  display: block;
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox-close:hover {
+  color: var(--accent-pro);
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(17, 17, 17, 0.7);
+  color: var(--text);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  z-index: 1;
+}
+
+.lightbox-nav:hover {
+  border-color: var(--accent-pro);
+  color: var(--accent-pro);
+}
+
+.lightbox-prev {
+  left: 12px;
+}
+
+.lightbox-next {
+  right: 12px;
+}

@@ -6,12 +6,12 @@ interface Props {
 }
 
 const { article } = Astro.props;
-const { title, summary } = article.data;
+const { title, type, summary } = article.data;
 const href = `/articles/${article.id}/`;
 ---
 
 <a class="article-card" href={href}>
-  <p class="article-kind">technical article</p>
+  {/* <p class="article-kind">{type}</p> */}
   <h3>{title}</h3>
   <p>{summary}</p>
 </a>

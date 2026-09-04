@@ -2,138 +2,60 @@
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav.astro";
+import Divider from "../components/Divider.astro";
+import Hero from "../components/Hero.astro";
+import Experience from "../components/Experience.astro";
 import Footer from "../components/Footer.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import ArticleCard from "../components/ArticleCard.astro";
-import { consultingEnabled } from "../config/site";
 
-const allProjects = (await getCollection("projects")).sort(
+import { siteCopy } from "../config/site";
+
+const allProjects = (await getCollection("projects", ({ data }) => !data.draft)).sort(
   (a, b) => a.data.order - b.data.order,
 );
-const allArticles = (await getCollection("articles")).sort(
+const allArticles = (await getCollection("articles", ({ data }) => !data.draft)).sort(
   (a, b) => a.data.order - b.data.order,
 );
 ---
 
-<Layout
-  title={consultingEnabled
-    ? "John Doe - synthetic systems consultant"
-    : "John Doe - indie dev"},
-  description={consultingEnabled
-    ? "Synthetic perception engineer and systems consultant for advanced android platforms."
-    : "Engineer building software, hardware, and experimental systems for human-facing machines."}
->
+<Layout title={siteCopy.title} description={siteCopy.description}>
   <Nav />
 
   <main>
-    <!-- ============ INTRODUCTION ZONE ============ -->
+    <!-- ============ HERO ZONE ============ -->
     <section class="zone-pro" id="about">
-      <p class="eyebrow pro">
-        {consultingEnabled ? "available for consulting" : "about me"}
-      </p>
-      <div class="hero">
-        <div class="hero-copy">
-          {
-            consultingEnabled ? (
-              <>
-                <h1>Synthetic systems engineer — 10+ years at Tyroll Corp.</h1>
-                <p class="lede">
-                  I build the visual systems for gen.2 android deployed in the mining colonies X145 and X156.
-                </p>
-                <p class="lede">
-                  Fun fact, I love unicorns for some reason.
-                </p>
-                <a class="btn-accent" href="#contact">Get in touch</a>
-                <a class="btn-ghost" href="#consulting" style="margin-left: 8px;">
-                  How I work
-                </a>
-              </>
-            ) : (
-              <>
-                <h1>Engineer building curious systems.</h1>
-                <p class="lede">
-                  I&apos;m John Doe — engineer, tinkerer, and amateur philosopher of
-                  machine behavior.
-                </p>
-                <a class="btn-accent" href="#projects">See my projects</a>
-              </>
-            )
-          }
-        </div>
-        <img
-          class="hero-portrait"
-          src="/images/hero.jpg"
-          alt="John Doe, a fictional robotics engineer"
-          width="1024"
-          height="1024"
-        />
-      </div>
-
-      {consultingEnabled && <div class="expertise-grid">
-        <div class="expertise-card">
-          <h3>Synthetic vision systems</h3>
-          <p>
-            Sensor fusion, image tuning, and perception validation for androids
-            deployed off-earth.
-          </p>
-        </div>
-        <div class="expertise-card">
-          <h3>Human-machine interfaces</h3>
-          <p>
-            Behavioral modeling and interface design for machines deployed in mixed working environment (w/ legacy human workers).
-          </p>
-        </div>
-      </div>}
-
-      {consultingEnabled && <div class="work-with-me" id="consulting">
-        <h3>Work with me</h3>
-        <p>
-          Systems audits, perception reviews, and prototype guidance for teams
-          building androids, autonomous systems. Safety compliance expert.
-        </p>
-        <a class="btn-ghost" href="#contact">Discuss a project</a>
-      </div>}
+      <Hero />
     </section>
 
+    <!-- ============ PROJECTS ============ -->
+    {allProjects.length > 0 && <>
+      <Divider label="making" />
+      <section id="projects">
+        <p class="section-heading">selected projects</p>
+        <div class="project-grid">
+          {allProjects.map((project) => <ProjectCard project={project} />)}
+        </div>
+      </section>
+    </>}
+
+    <!-- ============ EXPERIENCE ============ -->
+    <Divider label="practice" />
     <section id="experience">
       <p class="section-heading">experience</p>
-      <div class="experience-item">
-        <span class="years">2012–2025</span>
-        <div>
-          <h3>Senior systems engineer, Tyroll Corporation</h3>
-          <p>
-            Led the development and tuning of the Tyroll gen.2 android visual system. Off-earth debugging.
-          </p>
+      <Experience />
+    </section>
+
+    <!-- ============ ARTICLES ============ -->
+    {allArticles.length > 0 && <>
+      <Divider label="writing" />
+      <section id="articles">
+        <p class="section-heading">technical articles</p>
+        <div class="article-grid">
+          {allArticles.map((article) => <ArticleCard article={article} />)}
         </div>
-      </div>
-    </section>
-
-    <div class="zone-divider">
-      <span class="line"></span>
-      <span class="label">side projects</span>
-      <span class="line"></span>
-    </div>
-
-    <!-- ============ PERSONAL / LAB ZONE ============ -->
-    <section id="projects">
-      <p class="section-heading">selected projects</p>
-      <div class="project-grid">
-        {allProjects.map((project) => <ProjectCard project={project} />)}
-      </div>
-    </section>
-
-    <div class="zone-divider">
-      <span class="line"></span>
-      <span class="label">writing</span>
-      <span class="line"></span>
-    </div>
-
-    <section id="articles">
-      <p class="section-heading">technical articles</p>
-      <div class="article-grid">
-        {allArticles.map((article) => <ArticleCard article={article} />)}
-      </div>
-    </section>
+      </section>
+    </>}
   </main>
 
   <Footer />
