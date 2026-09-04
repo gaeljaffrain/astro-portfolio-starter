@@ -19,7 +19,7 @@ Built for **Astro v7**. Requires **Node 22+**.
 
 The visual content and sample portfolio copy intentionally use a fictional persona named John Doe. This is a template example only; the template itself is authored by Gaël Jaffrain.
 
-This template was generated to learn how to code an Astro site, with the goal to upgrade my old Wordpress portfolio. 
+I created this template while learning how to code an Astro site to upgrade my personal portfolio.
 
 ![Portfolio hero section screenshot](./screenshots/homepage_wide.jpg)
 
