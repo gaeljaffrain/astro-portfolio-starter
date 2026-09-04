@@ -4,9 +4,9 @@ Placeholder/demonstration assets. Graphical asset provenance and licensing below
 
 ## Original Assets
 
-Copyright (c) 2026 Gael Jaffrain | License: MIT
+Copyright (c) 2026 Gaël Jaffrain | License: MIT
 
-- `hero.jpeg` — Original photo, shot on iPhone, edited in Adobe Photoshop for a sci-fi vibe
+- `hero.jpeg` — Original photo, shot on iPhone, edited in Adobe Photoshop for a sci-fi vibe (AI filter)
 - `enclosure.png` — Original diagram, Apple Keynote
 - `pcb.png` — Original diagram, Apple Keynote
 - `bayer-pattern.png` — Original diagram, Apple Keynote
