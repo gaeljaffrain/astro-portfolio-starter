@@ -96,7 +96,8 @@ Add a new `.md` file in `src/content/articles/`.
 Articles appear in the homepage's **technical articles** section and are
 rendered at `/articles/<filename-without-extension>/`. The schema for
 article frontmatter is defined alongside the project schema in
-`src/content.config.ts`. So this is very similar to the `projects`
+`src/content.config.ts`. So this is very similar to the `projects`.
+See `history-of-demosaicing.md` for an example.
 
 ## Site structure
 
@@ -123,7 +124,7 @@ Keep that separation when you extend the site — don't let the amber
 accent leak into the projects zone or vice versa; it's what makes the
 two-zone structure read clearly.
 
-## Deploy to GitHub Pages with a custom domain
+## Deploy Option 1 - Deploy to GitHub Pages with a custom domain
 
 1. Push this repo to GitHub.
 2. In the repo settings → Pages, set the source to GitHub Actions.
@@ -135,3 +136,8 @@ two-zone structure read clearly.
 5. Point your domain's DNS at GitHub Pages per GitHub's custom-domain
    docs, then check "Enforce HTTPS" in the Pages settings once DNS
    propagates.
+
+## Deploy Option 2 - Build and upload manually
+
+1. Run `npm run build` -> This will create the static site output in the `dist` folder.
+2. Upload the content of `dist` by FTP/sFTP using your web hosting service.
