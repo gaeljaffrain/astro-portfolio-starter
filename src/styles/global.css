@@ -504,6 +504,26 @@ img {
   margin-bottom: 8px;
 }
 
+/* --- figures in content pages (image + caption, written as HTML in markdown) --- */
+
+.content-page__body figure {
+  margin: 28px auto;
+  text-align: center;
+}
+
+.content-page__body figure img {
+  margin: 0 auto;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--thumbnail-border);
+}
+
+.content-page__body figcaption {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
 /* this is meant to be used on top of the default class "eyebrow" */
 .content-page__eyebrow {
   color: var(--accent-pro);
