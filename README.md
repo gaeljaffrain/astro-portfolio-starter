@@ -1,8 +1,8 @@
 # Astro Portfolio Starter - for Indie Dev & Consultant
 
-**Author: Gaël Jaffrain - hello@gaeljaffrain.com**
+**Author: Gaël Jaffrain - [gaeljaffrain.com](gaeljaffrain.com)**
 
-[![View the live demo](https://img.shields.io/badge/View_the_live_demo-demo.gaeljaffrain.com-0f766e?style=for-the-badge)](https://astro-portfolio-starter.gaeljaffrain.com)
+[![View the live demo](https://img.shields.io/badge/View_the_live_demo-astro--portfolio--starter.gaeljaffrain.com-0f766e?style=for-the-badge)](https://astro-portfolio-starter.gaeljaffrain.com)
 
 ## Intro
 
@@ -126,15 +126,14 @@ two-zone structure read clearly.
 
 ## Deploy Option 1 - Deploy to GitHub Pages with a custom domain
 
-1. Push this repo to GitHub.
-2. In the repo settings → Pages, set the source to GitHub Actions.
-3. The included workflow at `.github/workflows/deploy.yml` builds the
-   site with the official `withastro/action` and deploys it when a
-   version tag (`v*`, e.g. from `npm version patch && git push --follow-tags`)
-   is pushed on a commit that is part of `main`; tags on other branches
-   are rejected.
-4. Set `base` in `astro.config.mjs` and add a `public/CNAME` file containing just the website domain.
-5. Point your domain's DNS at GitHub Pages per GitHub's custom-domain
+1. Clone and modify this repo, make it yours
+2. Set `base` in `astro.config.mjs` to your custom domain, and add a `public/CNAME` file
+   containing just the website domain.
+3. Push to Github
+4. In the repo settings → Pages, set the source to GitHub Actions.
+5. Push a version tag (`v*`) to main. The included workflow at `.github/workflows/deploy.yml` will
+   build the site with the official `withastro/action` and deploys it.
+6. Point your domain's DNS at GitHub Pages per GitHub's custom-domain
    docs, then check "Enforce HTTPS" in the Pages settings once DNS
    propagates.
 
