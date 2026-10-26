@@ -131,8 +131,8 @@ two-zone structure read clearly.
    containing just the website domain.
 3. Push to Github
 4. In the repo settings → Pages, set the source to GitHub Actions.
-5. Push a version tag (`v*`) to main. The included workflow at `.github/workflows/deploy.yml` will
-   build the site with the official `withastro/action` and deploys it.
+5. Push to main. The included workflow at `.github/workflows/deploy.yml` will
+   build the site with the official `withastro/action` and deploy it.
 6. Point your domain's DNS at GitHub Pages per GitHub's custom-domain
    docs, then check "Enforce HTTPS" in the Pages settings once DNS
    propagates.
