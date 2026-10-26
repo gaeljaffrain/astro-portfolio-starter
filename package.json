@@ -2,7 +2,7 @@
   "name": "astro-portfolio-starter",
   "description": "Astro portfolio template authored by Gaël Jaffrain, using a fictional John Doe example persona.",
   "type": "module",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "author": "Gaël Jaffrain",
   "license": "MIT",
   "scripts": {
