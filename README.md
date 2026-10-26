@@ -128,10 +128,16 @@ two-zone structure read clearly.
 
 1. Push this repo to GitHub.
 2. In the repo settings → Pages, set the source to GitHub Actions.
-3. Add a workflow at `.github/workflows/deploy.yml` using the official
-   `withastro/action` (see https://docs.astro.build/en/guides/deploy/github/
-   for the exact snippet — search `docs.astro.build` for "Deploy your
-   Astro Site to GitHub Pages" since these steps can change).
+3. The included workflow at `.github/workflows/deploy.yml` builds the
+   site with the official `withastro/action` and deploys it when a
+   version tag (`v*`, e.g. from `npm version patch && git push --follow-tags`)
+   is pushed on a commit that is part of `main`; tags on other branches
+   are rejected. In
+   Settings → Environments → `github-pages`, add a deployment rule
+   allowing `v*` tags, otherwise the deploy job is rejected. See
+   https://docs.astro.build/en/guides/deploy/github/ for reference. If
+   you deploy to `<user>.github.io/<repo>` instead of a custom domain,
+   update `site` and set `base` in `astro.config.mjs`.
 4. Add a `public/CNAME` file containing just the website URL.
 5. Point your domain's DNS at GitHub Pages per GitHub's custom-domain
    docs, then check "Enforce HTTPS" in the Pages settings once DNS
