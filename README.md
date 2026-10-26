@@ -2,7 +2,7 @@
 
 **Author: Gaël Jaffrain - hello@gaeljaffrain.com**
 
-[![View the live demo](https://img.shields.io/badge/View_the_live_demo-demo.gaeljaffrain.com-0f766e?style=for-the-badge)](https://demo.gaeljaffrain.com)
+[![View the live demo](https://img.shields.io/badge/View_the_live_demo-demo.gaeljaffrain.com-0f766e?style=for-the-badge)](https://astro-portfolio-starter.gaeljaffrain.com)
 
 ## Intro
 
@@ -132,13 +132,8 @@ two-zone structure read clearly.
    site with the official `withastro/action` and deploys it when a
    version tag (`v*`, e.g. from `npm version patch && git push --follow-tags`)
    is pushed on a commit that is part of `main`; tags on other branches
-   are rejected. In
-   Settings → Environments → `github-pages`, add a deployment rule
-   allowing `v*` tags, otherwise the deploy job is rejected. See
-   https://docs.astro.build/en/guides/deploy/github/ for reference. If
-   you deploy to `<user>.github.io/<repo>` instead of a custom domain,
-   update `site` and set `base` in `astro.config.mjs`.
-4. Add a `public/CNAME` file containing just the website URL.
+   are rejected.
+4. Set `base` in `astro.config.mjs` and add a `public/CNAME` file containing just the website domain.
 5. Point your domain's DNS at GitHub Pages per GitHub's custom-domain
    docs, then check "Enforce HTTPS" in the Pages settings once DNS
    propagates.
