@@ -1,6 +1,6 @@
 # Astro Portfolio Starter - for Indie Dev & Consultant
 
-**Author: Gaël Jaffrain - [gaeljaffrain.com](gaeljaffrain.com)**
+**Author: Gaël Jaffrain - [gaeljaffrain.com](https://gaeljaffrain.com)**
 
 [![View the live demo](https://img.shields.io/badge/View_the_live_demo-astro--portfolio--starter.gaeljaffrain.com-0f766e?style=for-the-badge)](https://astro-portfolio-starter.gaeljaffrain.com)
 
